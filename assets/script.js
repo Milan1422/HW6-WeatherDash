@@ -21,6 +21,8 @@ function searchCity(citySearch){
     }).then(function(response){
         console.log(response);
 
+
+
     })
 };
 
