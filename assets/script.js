@@ -21,6 +21,13 @@ function searchCity(citySearch){
     }).then(function(response){
         console.log(response);
 
+        // pulling current data from JSON response
+        console.log(response.name)
+        let cityName = $("#current-city").text(response.name);
+
+
+        // populating data onto HTML
+        cityName.append()
 
 
     })
