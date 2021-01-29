@@ -35,8 +35,21 @@ function searchCity(citySearch){
         cityHumidity.append();
         cityWind.append();
 
+        fiveDayWeather(citySearch);
     })
 };
 
+// when button is clicked display 5-day weather span
+function fiveDayWeather(citySearch){
+    let queryURLForcast = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=f261145622245616c003651f582a49a8&units=imperial"
+
+    // ajax call to openweather api
+    $.ajax({
+        url: queryURLForcast,
+        type: "GET"
+    }).then(function(response){
+        console.log(response);
+    })
+}
 
 });
