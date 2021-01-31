@@ -9,6 +9,7 @@ $(document).ready(function(){
 $("#btn-search").on("click", function(){
     let citySearch = $("#city-search").val();
     searchCity(citySearch);
+    saveCity(citySearch)
 });
 
 // do this when the search button is clicked
@@ -38,6 +39,7 @@ function searchCity(citySearch){
 
         fiveDayWeather(citySearch);
         callUVIndex(response.coord.lat, response.coord.lon)
+        saveCity(citySearch);
     })
 };
 
@@ -143,5 +145,31 @@ function fiveDayWeather(citySearch){
         }
     })
 }
+
+// using local storage to save searched cities
+function saveCity(citySearch){
+    let cities = [];
+    for (let i = 0; i < cities.length; i++) {
+        let city = cities[i];
+        
+        if(citySearch != ""){
+            let previousCity = $("<li>").attr("data-city-", i).text(citySearch);
+            $(".searched-cities").append(previousCity)
+        }
+    }
+    localStorage.setItem("city-name-" + citySearch, JSON.stringify(citySearch))
+}
+
+function storedCities(citySearch){
+    let storedCities = JSON.parse(localStorage.getItem("data-name-" + citySearch));
+    if (storedCities !== null) {
+        cities = storedCities;
+    }
+    $(".searched-cities").append("<li>").text(storedCities)
+    console.log(storedCities)
+}
+storedCities();
+
+
 
 })
