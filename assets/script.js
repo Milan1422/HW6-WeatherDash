@@ -13,7 +13,7 @@ $("#btn-search").on("click", function(){
 
 // do this when the search button is clicked
 function searchCity(citySearch){
-    let queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=f261145622245616c003651f582a49a8&units=imperial"
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=f261145622245616c003651f582a49a8&units=imperial"
     // luxon to add date
 
     // ajax call to openweather api
@@ -44,7 +44,7 @@ function searchCity(citySearch){
 // call for UV index
 function callUVIndex (lat, lon) {
     $.ajax({
-        url: "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=f261145622245616c003651f582a49a8",
+        url: "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=f261145622245616c003651f582a49a8",
         type: "GET"
     }).then(function(response){
         let uvPtag = $("<p>").text("UV Index: ");
@@ -56,7 +56,7 @@ function callUVIndex (lat, lon) {
 
 // when button is clicked display 5-day weather span
 function fiveDayWeather(citySearch){
-    let queryURLForcast = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=f261145622245616c003651f582a49a8&units=imperial"
+    let queryURLForcast = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=f261145622245616c003651f582a49a8&units=imperial"
 
     // ajax call to openweather api
     $.ajax({
@@ -69,7 +69,7 @@ function fiveDayWeather(citySearch){
             let forecastWeek = response.list[i];
             // console.log(forecastWeek);
             let dayOneDate = $("#day1-date").text(new Date(response.list[1].dt_txt).toLocaleDateString())
-            let weatherIcon = $("#day1-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png")
+            let weatherIcon = $("#day1-icon").attr("src", "https://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png")
             let forecastTemp = $("#day1-temp").text("Temperature: " + response.list[1].main.temp_max + "F")
             let forecastHum = $("#day1-hum").text("Humidity: " + response.list[1].main.humidity + "%")
            
@@ -84,7 +84,7 @@ function fiveDayWeather(citySearch){
         for (let i = 0; i < response.list.length; i++) {
             let forecastWeek = response.list[i];
             let dayOneDate = $("#day2-date").text(new Date(response.list[9].dt_txt).toLocaleDateString())
-            let weatherIcon = $("#day2-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[9].weather[0].icon + ".png")
+            let weatherIcon = $("#day2-icon").attr("src", "https://openweathermap.org/img/w/" + response.list[9].weather[0].icon + ".png")
             let forecastTemp = $("#day2-temp").text("Temperature: " + response.list[9].main.temp_max + "F")
             let forecastHum = $("#day2-hum").text("Humidity: " + response.list[9].main.humidity + "%")
            
@@ -99,7 +99,7 @@ function fiveDayWeather(citySearch){
         for (let i = 0; i < response.list.length; i++) {
             let forecastWeek = response.list[i];
             let dayOneDate = $("#day3-date").text(new Date(response.list[17].dt_txt).toLocaleDateString())
-            let weatherIcon = $("#day3-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[17].weather[0].icon + ".png")
+            let weatherIcon = $("#day3-icon").attr("src", "https://openweathermap.org/img/w/" + response.list[17].weather[0].icon + ".png")
             let forecastTemp = $("#day3-temp").text("Temperature: " + response.list[17].main.temp_max + "F")
             let forecastHum = $("#day3-hum").text("Humidity: " + response.list[17].main.humidity + "%")
            
@@ -114,7 +114,7 @@ function fiveDayWeather(citySearch){
         for (let i = 0; i < response.list.length; i++) {
             let forecastWeek = response.list[i];
             let dayOneDate = $("#day4-date").text(new Date(response.list[25].dt_txt).toLocaleDateString())
-            let weatherIcon = $("#day4-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[25].weather[0].icon + ".png")
+            let weatherIcon = $("#day4-icon").attr("src", "https://openweathermap.org/img/w/" + response.list[25].weather[0].icon + ".png")
             let forecastTemp = $("#day4-temp").text("Temperature: " + response.list[25].main.temp_max + "F")
             let forecastHum = $("#day4-hum").text("Humidity: " + response.list[25].main.humidity + "%")
            
@@ -129,7 +129,7 @@ function fiveDayWeather(citySearch){
         for (let i = 0; i < response.list.length; i++) {
             let forecastWeek = response.list[i];
             let dayOneDate = $("#day5-date").text(new Date(response.list[33].dt_txt).toLocaleDateString())
-            let weatherIcon = $("#day5-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[33].weather[0].icon + ".png")
+            let weatherIcon = $("#day5-icon").attr("src", "https://openweathermap.org/img/w/" + response.list[33].weather[0].icon + ".png")
             let forecastTemp = $("#day5-temp").text("Temperature: " + response.list[33].main.temp_max + "F")
             let forecastHum = $("#day5-hum").text("Humidity: " + response.list[33].main.humidity + "%")
            
