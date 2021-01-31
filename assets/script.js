@@ -8,7 +8,6 @@ $(document).ready(function(){
 // search button action
 $("#btn-search").on("click", function(){
     let citySearch = $("#city-search").val();
-    console.log(citySearch);
     searchCity(citySearch);
 });
 
@@ -25,7 +24,6 @@ function searchCity(citySearch){
         console.log(response);
 
         // pulling current data from JSON response
-        console.log(response.name)
         let cityName = $("#current-city").text(response.name);
         let cityTemp = $("#temperature").text("Temperature: " + response.main.temp + "F");
         let cityHumidity = $("#humidity").text("Humidity: " + response.main.humidity + "%");
@@ -55,11 +53,75 @@ function fiveDayWeather(citySearch){
         // loop thru each day of the week
         for (let i = 0; i < response.list.length; i++) {
             let forecastWeek = response.list[i];
-            // console.log(forecastWeek);
+            console.log(forecastWeek);
             let dayOneDate = $("#day1-date").text(new Date(response.list[1].dt_txt).toLocaleDateString())
             let weatherIcon = $("#day1-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[1].weather[0].icon + ".png")
             let forecastTemp = $("#day1-temp").text("Temperature: " + response.list[1].main.temp_max + "F")
             let forecastHum = $("#day1-hum").text("Humidity: " + response.list[1].main.humidity + "%")
+           
+            // populate forecast onto page
+            dayOneDate.append();
+            weatherIcon.append();
+            forecastTemp.append();
+            forecastHum.append();
+
+            
+        }
+        for (let i = 0; i < response.list.length; i++) {
+            let forecastWeek = response.list[i];
+            // console.log(forecastWeek);
+            let dayOneDate = $("#day2-date").text(new Date(response.list[9].dt_txt).toLocaleDateString())
+            let weatherIcon = $("#day2-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[9].weather[0].icon + ".png")
+            let forecastTemp = $("#day2-temp").text("Temperature: " + response.list[9].main.temp_max + "F")
+            let forecastHum = $("#day2-hum").text("Humidity: " + response.list[9].main.humidity + "%")
+           
+            // populate forecast onto page
+            dayOneDate.append();
+            weatherIcon.append();
+            forecastTemp.append();
+            forecastHum.append();
+
+            
+        }
+        for (let i = 0; i < response.list.length; i++) {
+            let forecastWeek = response.list[i];
+            // console.log(forecastWeek);
+            let dayOneDate = $("#day3-date").text(new Date(response.list[17].dt_txt).toLocaleDateString())
+            let weatherIcon = $("#day3-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[17].weather[0].icon + ".png")
+            let forecastTemp = $("#day3-temp").text("Temperature: " + response.list[17].main.temp_max + "F")
+            let forecastHum = $("#day3-hum").text("Humidity: " + response.list[17].main.humidity + "%")
+           
+            // populate forecast onto page
+            dayOneDate.append();
+            weatherIcon.append();
+            forecastTemp.append();
+            forecastHum.append();
+
+            
+        }
+        for (let i = 0; i < response.list.length; i++) {
+            let forecastWeek = response.list[i];
+            // console.log(forecastWeek);
+            let dayOneDate = $("#day4-date").text(new Date(response.list[25].dt_txt).toLocaleDateString())
+            let weatherIcon = $("#day4-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[25].weather[0].icon + ".png")
+            let forecastTemp = $("#day4-temp").text("Temperature: " + response.list[25].main.temp_max + "F")
+            let forecastHum = $("#day4-hum").text("Humidity: " + response.list[25].main.humidity + "%")
+           
+            // populate forecast onto page
+            dayOneDate.append();
+            weatherIcon.append();
+            forecastTemp.append();
+            forecastHum.append();
+
+            
+        }
+        for (let i = 0; i < response.list.length; i++) {
+            let forecastWeek = response.list[i];
+            // console.log(forecastWeek);
+            let dayOneDate = $("#day5-date").text(new Date(response.list[33].dt_txt).toLocaleDateString())
+            let weatherIcon = $("#day5-icon").attr("src", "http://openweathermap.org/img/w/" + response.list[33].weather[0].icon + ".png")
+            let forecastTemp = $("#day5-temp").text("Temperature: " + response.list[33].main.temp_max + "F")
+            let forecastHum = $("#day5-hum").text("Humidity: " + response.list[33].main.humidity + "%")
            
             // populate forecast onto page
             dayOneDate.append();
